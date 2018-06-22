@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config">
+    <collection name="build_type_collection" idField="id">
+        <prototype>
+            <![CDATA[
+                select
+                  id          as id,
+                  title       as title,
+                  description as description
+                from build_type
+                where
+                  1=1 ::where-clause
+            ]]>
+        </prototype>
+    </collection>
+
+    <collection-view name="build_type_view" collection="build_type_collection" is-default="true">
+        <display>
+            <column field="title" name="Тип строения" type="string" min-width="50px" text-break-style="cut" editable="true"/>
+            <column field="description" name="Описание" type="string" min-width="50px" text-break-style="cut" editable="true"/>
+        </display>
+    </collection-view>
+</configuration>

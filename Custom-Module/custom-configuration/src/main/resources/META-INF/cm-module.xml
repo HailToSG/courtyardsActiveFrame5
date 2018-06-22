@@ -19,6 +19,18 @@
         <configuration-path>configuration/navigation-panel.xml</configuration-path>
         <configuration-path>configuration/global.xml</configuration-path>
         <configuration-path>configuration/form-mechanism-1.xml</configuration-path>
+
+        <!-- Доменные объекты -->
+        <configuration-path>dop/buildings.xml</configuration-path>
+
+        <!-- Коллекции -->
+        <configuration-path>collections/buildings/residential-collection.xml</configuration-path>
+        <configuration-path>collections/buildings/build-type-collection.xml</configuration-path>
+
+        <!-- Формы -->
+        <configuration-path>forms/buildings/residential-form.xml</configuration-path>
+
+
     </configuration-paths>
     <import-files rewrite="true">
         <import-file>importdata/f1.csv</import-file>

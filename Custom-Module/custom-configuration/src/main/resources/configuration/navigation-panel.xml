@@ -18,7 +18,24 @@
             </child-links>
         </link>
 
+        <link name="Qualifiers" display-text="Классификаторы" image="images/helpers.png" child-to-open="Buildings">
+            <child-links>
 
+            <link name="Buildings" display-text="Строения жилые">
+                    <plugin>
+                        <domain-object-surfer domain-object-type-to-create="build_resident">
+                            <collection-viewer>
+                                <collection-ref name="residential_collection"/>
+                                <!--<default-sort-criteria column-field="area" order="ASC"/>-->
+                            </collection-viewer>
+                            <form-viewer>
+                                <form-mapping domain-object-type="build_resident" form="residential_form"/>
+                            </form-viewer>
+                        </domain-object-surfer>
+                    </plugin>
+                </link>
+            </child-links>
+        </link>
 
     </navigation>
     <navigation-panel-mappings name="nav-panel-map1">

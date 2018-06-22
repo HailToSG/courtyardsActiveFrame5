@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config">
+
+    <!-- Класс "Строения" -->
+    <domain-object-type name="buildings">
+        <fields>
+            <!-- Жилое здание -->
+            <reference name="build_resident" type="build_resident" not-null="true">
+                <!-- Это ограничение влияет на валидацию на форме -->
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!-- Не жилое капительное здание -->
+            <reference name="build_nonresident_cap" type="build_nonresident_cap" not-null="true">
+                <!-- Это ограничение влияет на валидацию на форме -->
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!-- Не жилое не капительное здание -->
+            <reference name="build_nonresident_noncap" type="build_nonresident_noncap" not-null="true">
+                <!-- Это ограничение влияет на валидацию на форме -->
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+
+    <!-- Тип строения, поля: тип, описание -->
+    <domain-object-type name="build_type">
+        <fields>
+            <!-- Тип строения -->
+            <string name="title" length="100" not-null="true">
+                 <!--Это ограничение влияет на валидацию на форме -->
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- Описание типа строения -->
+            <string name="description" length="1024"/>
+        </fields>
+    </domain-object-type>
+
+    <!-- Жилое здание -->
+    <domain-object-type name="build_resident">
+        <fields>
+            <!-- Занимаемая площадь -->
+            <long name="area" not-null="true">
+                <!-- Это ограничение влияет на валидацию на форме -->
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- Тип строения -->
+            <reference name="type" type="build_type" not-null="true">
+                <!-- Это ограничение влияет на валидацию на форме -->
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+
+        <attachment-types>
+            <attachment-type name="resident_photo"/>
+        </attachment-types>
+
+    </domain-object-type>
+
+    <!-- Не жилое капительное здание -->
+    <domain-object-type name="build_nonresident_cap">
+        <fields>
+            <!-- Занимаемая площадь -->
+            <long name="area" not-null="true">
+                <!-- Это ограничение влияет на валидацию на форме -->
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- Тип строения -->
+            <reference name="type" type="build_type" not-null="true">
+                <!-- Это ограничение влияет на валидацию на форме -->
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+        </fields>
+
+        <attachment-types>
+            <attachment-type name="nonresident_cap_photo"/>
+        </attachment-types>
+    </domain-object-type>
+
+    <!-- Не жилое не капительное здание -->
+    <domain-object-type name="build_nonresident_noncap">
+        <fields>
+            <!-- Занимаемая площадь -->
+            <long name="area" not-null="true">
+                <!-- Это ограничение влияет на валидацию на форме -->
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- Тип строения -->
+            <reference name="type" type="build_type" not-null="true">
+                <!-- Это ограничение влияет на валидацию на форме -->
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--&lt;!&ndash; Состояние, системная сущность Status &ndash;&gt;-->
+            <!--<reference name="status" type="status" not-null="true">-->
+                <!--&lt;!&ndash; Это ограничение влияет на валидацию на форме &ndash;&gt;-->
+                <!--<constraints>-->
+                    <!--<simple-constraint value="not-empty"/>-->
+                <!--</constraints>-->
+            <!--</reference>-->
+        </fields>
+
+        <attachment-types>
+            <attachment-type name="nonresident_noncap_photo"/>
+        </attachment-types>
+    </domain-object-type>
+
+</configuration>

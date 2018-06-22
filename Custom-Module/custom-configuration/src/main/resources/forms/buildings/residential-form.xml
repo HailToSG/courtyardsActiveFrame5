@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config">
+    <form name="residential_form" domain-object-type="build_resident" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+            <body display-single-tab="false">
+                <tab name="Строения">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <!-- Площадь строения -->
+                                <tr>
+                                    <td h-align="left">
+                                        <widget id="buildingAreaLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="buildingAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Тип строенияя -->
+                                <tr>
+                                    <td h-align="left">
+                                        <widget id="buildingTypeLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="buildingTypeValue"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Состояние строенияя -->
+                                <tr>
+                                    <td h-align="left">
+                                        <widget id="buildingStatusLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="buildingStatusValue"/>
+                                    </td>
+                                </tr>
+
+                                <!-- Фотография -->
+                                <tr>
+                                    <td h-align="left">
+                                        <widget id="buildingPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <!--<widget id="buildingPhotoValue"/>-->
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+            </body>
+        </markup>
+        <widget-config>
+            <!-- Заголовок формы -->
+            <label id="headerLabel">
+                <text>Строение</text>
+            </label>
+
+            <!-- Площадь строенияы -->
+            <label id="buildingAreaLabel">
+                <text>Строение</text>
+            </label>
+            <integer-box id="buildingAreaValue">
+                <field-path value="area"/>
+            </integer-box>
+
+            <!-- Тип строенияы -->
+            <label id="buildingTypeLabel">
+                <text>Строение</text>
+            </label>
+            <text-box id="buildingTypeValue">
+                <field-path value="type"/>
+            </text-box>
+
+            <!-- Статус строенияы -->
+            <label id="buildingStatusLabel">
+                <text>Строение</text>
+            </label>
+            <suggest-box id="buildingStatusValue">
+                <field-path value="status" on-root-delete="unlink"/>
+                <collection-ref name="residential_status_collection"/>
+                <input-text-filter name="byStatusDescription"/>
+                <drop-down-pattern value="{status_description}"/>
+                <selection-pattern value="{status_description}"/>
+                <page-size>30</page-size>
+                <selection-style name="table"/>
+            </suggest-box>
+
+            <!-- Фотографии -->
+            <label id="buildingPhotoLabel">
+                <text>Фотографии</text>
+            </label>
+            <!--<attachment-box id="buildingPhotoValue">-->
+                <!--<field-path value="photo^build_resident"/>-->
+                <!--<attachment-type-ref name="photo"/>-->
+                <!--<scanner enabled="false"/>-->
+                <!--<selection-style name="table"/>-->
+            <!--</attachment-box>-->
+        </widget-config>
+    </form>
+</configuration>
