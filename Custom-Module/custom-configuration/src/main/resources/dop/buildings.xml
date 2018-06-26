@@ -32,14 +32,14 @@
     <domain-object-type name="build_types">
         <fields>
             <!-- Описание типа строения -->
-            <string name="typeName" length="1024">
+            <string name="name" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!-- Описание типа строения -->
-            <string name="typeDescription" length="1024">
+            <string name="description" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -50,14 +50,13 @@
     <domain-object-type name="build_status">
         <fields>
             <!-- Имя состояния -->
-            <string name="statusName" length="1024">
+            <string name="name" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
-
             <!-- Описание состояния -->
-            <string name="statusDescription" length="1024">
+            <string name="description" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -76,7 +75,7 @@
             </long>
 
             <!-- Ссылка на тип строения-->
-            <reference name="buildTypeId" type="build_types" not-null="true">
+            <reference name="buildType" type="build_types" not-null="true">
             </reference>
 
             <!-- Ссылка на статус строения-->
@@ -96,11 +95,11 @@
             </long>
 
             <!-- Ссылка на тип строения-->
-            <reference name="buildTypeId" type="build_types" not-null="true">
+            <reference name="buildType" type="build_types" not-null="true">
             </reference>
 
             <!-- Ссылка на статус строения-->
-            <reference name="buildStatusId" type="build_status" not-null="true">
+            <reference name="buildStatus" type="build_status" not-null="true">
             </reference>
         </fields>
     </domain-object-type>
@@ -116,11 +115,11 @@
             </string>
 
             <!-- Ссылка на тип строения-->
-            <reference name="buildTypeId" type="build_types" not-null="true">
+            <reference name="buildType" type="build_types" not-null="true">
             </reference>
 
             <!-- Ссылка на статус строения-->
-            <reference name="buildStatusId" type="build_status" not-null="true">
+            <reference name="buildStatus" type="build_status" not-null="true">
             </reference>
         </fields>
     </domain-object-type>

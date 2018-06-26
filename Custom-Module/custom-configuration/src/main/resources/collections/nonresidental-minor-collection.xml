@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <collection name="nonresidental_minor_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              minor.id                 AS id,
+              minor.area               AS nonresidental_minor_area,
+              minor.type               AS nonresidental_minor_type,
+              minor.status             AS nonresidental_minor_status
+
+            FROM build_nonresidental_minor minor
+            INNER JOIN build_types type ON type.id = minor.type
+            INNER JOIN build_status status ON status.id = minor.status
+            WHERE
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+    </collection>
+
+    <collection-view name="nonresidental_minor_view" collection="nonresidental_minor_collection" is-default="true">
+        <display>
+            <column field="nonresidental_minor_area" name="Площадь" type="long" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="nonresidental_minor_type" name="Тип строения" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="nonresidental_minor_status" name="Статус строения" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut">
+            </column>
+        </display>
+    </collection-view>
+
+</configuration>

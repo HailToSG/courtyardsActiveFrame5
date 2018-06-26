@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <collection name="yards_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              yards.id            AS id,
+              yards.oktmo         AS yards_oktmo,
+              yards.adress        AS yards_adress,
+              yards.area          AS yards_area,
+              yards.dateendevent  AS yards_date_end_event
+
+            FROM build_yards yards
+            WHERE
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+    </collection>
+
+    <collection-view name="yards_view" collection="yards_collection" is-default="true">
+        <display>
+            <column field="yards_oktmo" name="ОКТМО" type="string" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="yards_adress" name="Адрес" type="string" editable="true"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="yards_area" name="Площадь" type="long" editable="true"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="yards_date_end_event" name="Дата изменения" type="timelessDate" editable="true"
+                    sortable="true" min-width="50px" text-break-style="cut">
+            </column>
+        </display>
+    </collection-view>
+
+</configuration>

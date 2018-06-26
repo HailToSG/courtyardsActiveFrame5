@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <collection name="status_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              status.id                 AS id,
+              status.name               AS status_name,
+              status.description        AS status_description
+
+            FROM build_status status
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+    </collection>
+</configuration>

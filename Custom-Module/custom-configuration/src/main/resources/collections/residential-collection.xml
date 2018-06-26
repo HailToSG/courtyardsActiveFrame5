@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <collection name="residential_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              residential.id                 AS id,
+              residential.area               AS residential_area,
+              residential.type               AS residential_type,
+              residential.status             AS residential_status
+
+            FROM build_residential residential
+            INNER JOIN build_type type ON type.id = residential.type
+            INNER JOIN build_status stat ON stat.id = residential.status
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+    </collection>
+    <collection-view name="residential_view" collection="residential_collection" is-default="true">
+        <display>
+            <column field="residential_area" name="Площадь" type="long" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="residential_type" name="Тип строения" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="residential_status" name="Статус строения" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut">
+            </column>
+        </display>
+    </collection-view>
+</configuration>

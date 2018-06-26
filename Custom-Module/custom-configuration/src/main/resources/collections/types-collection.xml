@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <collection name="types_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              type.id                 AS id,
+              type.name               AS type_name,
+              type.description        AS type_description
+
+            FROM build_types type
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+    </collection>
+</configuration>
