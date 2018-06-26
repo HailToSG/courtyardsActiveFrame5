@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config">
+
+    <domain-object-type name="yards">
+                <fields>
+                    <!--ОКТМО -->
+                    <string name="oktmo" length="100" not-null="true">
+                        <constraints>
+                            <simple-constraint value="not-empty"/>
+                        </constraints>
+                    </string>
+                    <!--Адрес двора -->
+                    <string name="adress" length="100" not-null="true">
+                        <constraints>
+                            <simple-constraint value="not-empty"/>
+                        </constraints>
+                    </string>
+                    <!--Площадь двора -->
+                    <long name="area">
+                        <constraints>
+                            <simple-constraint value="not-empty"/>
+                        </constraints>
+                    </long>
+                    <!--Дата последнего изменения -->
+                    <timelessDate name="dateEndEvent">
+                        <constraints>
+                        <simple-constraint value="not-empty"/>
+                    </constraints>
+                    </timelessDate>
+
+                    <!--ссылка на Строения -->
+                    <reference name="buildingsId" type="build_buildings" not-null="true"/>
+                </fields>
+    </domain-object-type>
+
+</configuration>

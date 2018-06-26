@@ -1,68 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config">
 
-    <!-- Cущность "Дворы" -->
-    <domain-object-type name="yards">
-        <fields>
-            <!--ОКТМО -->
-            <string name="oktmo" length="100" not-null="true">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </string>
-            <!--Адрес двора -->
-            <string name="adress" length="100" not-null="true">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </string>
-            <!--Площадь двора -->
-            <string name="area" length="100" not-null="true">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </string>
-            <!--Дата последнего изменения -->
-            <timelessDate name="dateEndEvent">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </timelessDate>
-
-            <!--Ссылка на строения-->
-            <reference name="buildings" type="buildings" not-null="true">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-        </fields>
-    </domain-object-type>
-
     <!-- Cущность "Строения" -->
-    <domain-object-type name="buildings">
+    <domain-object-type name="build_buildings">
         <fields>
-            <!-- Ссылка на двор-->
-            <reference name="yardId" type="yards" not-null="true">
+            <!-- Ссылка на "Жилые строения"-->
+            <reference name="build_residential" type="build_residential" not-null="true">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </reference>
 
-            <!-- Ссылка на тип здания-->
-            <reference name="typeId" type="building_types" not-null="true">
+            <!-- Ссылка на "Нежилые капитальные строения"-->
+            <reference name="build_nonresidental_major" type="build_nonresidental_major" not-null="true">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </reference>
+
+            <!-- Ссылка на "Нежилые некапитальные строения"-->
+            <reference name="build_nonresidental_minor" type="build_nonresidental_minor" not-null="true">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
         </fields>
     </domain-object-type>
 
     <!-- Cущность "Типы строений" -->
-    <domain-object-type name="building_types">
+    <domain-object-type name="build_types">
         <fields>
+            <!-- Описание типа строения -->
+            <string name="typeName" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
 
             <!-- Описание типа строения -->
-            <string name="description" length="1024">
+            <string name="typeDescription" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+        </fields>
+
+    </domain-object-type><!-- Cущность "Состояние строения" -->
+    <domain-object-type name="build_status">
+        <fields>
+            <!-- Имя состояния -->
+            <string name="statusName" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- Описание состояния -->
+            <string name="statusDescription" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -71,43 +66,47 @@
     </domain-object-type>
 
     <!-- Cущность "Жилое строение" -->
-    <domain-object-type name="residential">
+    <domain-object-type name="build_residential">
         <fields>
             <!-- Площадь -->
-            <string name="area" length="100" not-null="true">
+            <long name="area">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
-            <reference name="buildTypeId" type="building_types" not-null="true">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
+            </long>
+
+            <!-- Ссылка на тип строения-->
+            <reference name="buildTypeId" type="build_types" not-null="true">
             </reference>
 
+            <!-- Ссылка на статус строения-->
+            <reference name="buildStatusId" type="build_status" not-null="true">
+            </reference>
         </fields>
     </domain-object-type>
 
     <!-- Cущность "Нежилое капитальное строение" -->
-    <domain-object-type name="nonresidental_major">
+    <domain-object-type name="build_nonresidental_major">
         <fields>
             <!-- Площадь -->
-            <string name="area" length="100" not-null="true">
+            <long name="area">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
 
-            <reference name="buildTypeId" type="building_types" not-null="true">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
+            <!-- Ссылка на тип строения-->
+            <reference name="buildTypeId" type="build_types" not-null="true">
+            </reference>
+
+            <!-- Ссылка на статус строения-->
+            <reference name="buildStatusId" type="build_status" not-null="true">
             </reference>
         </fields>
     </domain-object-type>
 
     <!-- Cущность "Жилое нежилое некапитальное строение" -->
-    <domain-object-type name="nonresidental_minor">
+    <domain-object-type name="build_nonresidental_minor">
         <fields>
             <!-- Площадь -->
             <string name="area" length="100" not-null="true">
@@ -115,13 +114,14 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
-            <reference name="buildTypeId" type="building_types" not-null="true">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
+
+            <!-- Ссылка на тип строения-->
+            <reference name="buildTypeId" type="build_types" not-null="true">
+            </reference>
+
+            <!-- Ссылка на статус строения-->
+            <reference name="buildStatusId" type="build_status" not-null="true">
             </reference>
         </fields>
     </domain-object-type>
-
 </configuration>
-

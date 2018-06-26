@@ -21,6 +21,7 @@
         <configuration-path>configuration/form-mechanism-1.xml</configuration-path>
 
         <!-- Доменные объекты -->
+        <configuration-path>dop/other.xml</configuration-path>
         <configuration-path>dop/buildings.xml</configuration-path>
 
     </configuration-paths>
