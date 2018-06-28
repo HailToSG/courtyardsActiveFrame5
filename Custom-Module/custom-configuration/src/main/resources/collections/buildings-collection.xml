@@ -12,8 +12,8 @@
 
             FROM build_buildings buildings
             INNER JOIN build_residential br ON br.id = buildings.residential
-            INNER JOIN build_nonresidental_major bmaj ON bmaj.id = buildings.major
-            INNER JOIN build_nonresidental_minor bmin ON bmin.id = buildings.minor
+            INNER JOIN build_nonresident_major bmaj ON bmaj.id = buildings.major
+            INNER JOIN build_nonresident_minor bmin ON bmin.id = buildings.minor
             WHERE
               1=1 ::where-clause
             ]]>

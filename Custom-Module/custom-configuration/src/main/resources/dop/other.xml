@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config">
-
+    <!--Доменный объект "Дворы"-->
     <domain-object-type name="yards">
                 <fields>
                     <!--ОКТМО -->
@@ -10,7 +10,7 @@
                         </constraints>
                     </string>
                     <!--Адрес двора -->
-                    <string name="adress" length="100">
+                    <string name="address" length="100">
                         <constraints>
                             <simple-constraint value="not-empty"/>
                         </constraints>
@@ -29,7 +29,7 @@
                     </timelessDate>
 
                     <!--ссылка на Строения -->
-                    <reference name="buildingsId" type="build_buildings" not-null="true"/>
+                    <reference name="buildingsId" type="build_buildings"/>
                 </fields>
     </domain-object-type>
 

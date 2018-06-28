@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Дворы" -->
+    <form name="yards_form" domain-object-type="yards" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+            <body display-single-tab="true">
+                <tab name="Двор">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="yardsOktmoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="yardsOktmoValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="yardsAddressLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="yardsAddressValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="yardsAreaLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="yardsAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="yardsDateEndEventLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="yardsDateEndEventValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+                <tab name="Карта">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="yardsMapLabel"/>
+                                    </td>
+
+                                    <td h-align="right">
+                                        <widget id="yardsMapValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+                <tab name="Галерея">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="yardsGalleryLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="yardsGalleryValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+                <tab name="Строения">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="yardsObjectsLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="yardsObjectsValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+            <!-- Дворы -->
+            <label id="headerLabel">
+                <text>Объекты</text>
+            </label>
+
+            <!-- ОКТМО -->
+            <label id="yardsOktmoLabel">
+                <text>ОКТМО</text>
+            </label>
+            <text-box id="yardsOktmoValue">
+                <field-path value="oktmo"/>
+            </text-box>
+
+            <!-- Адрес двора -->
+            <label id="yardsAddressLabel">
+                <text>Адрес</text>
+            </label>
+            <text-box id="yardsAddressValue">
+                <field-path value="address"/>
+            </text-box>
+
+            <!-- Площадь -->
+            <label id="yardsAreaLabel">
+                <text>Площадь</text>
+            </label>
+            <integer-box id="yardsAreaValue">
+                <field-path value="area"/>
+            </integer-box>
+
+            <!-- Дата последнего изменения -->
+            <label id="yardsDateEndEventLabel">
+                <text>Дата последнего изменения</text>
+            </label>
+            <date-box id="yardsDateEndEventValue">
+                <field-path value="dateendevent"/>
+            </date-box>
+
+            <!-- Карта -->
+            <label id="yardsMapLabel">
+                <text>Двор на карте</text>
+            </label>
+            <text-box id="yardsMapValue">
+                <field-path value="address"/>
+            </text-box>
+
+            <!-- Галерея -->
+            <label id="yardsGalleryLabel">
+                <text>Галерея</text>
+            </label>
+            <text-box id="yardsGalleryValue">
+                <field-path value="address"/>
+            </text-box>
+
+            <!-- Строения -->
+            <label id="yardsObjectsLabel">
+                <text>Строения</text>
+            </label>
+            <!-- Статус данного формуляра -->
+            <suggest-box id="yardsObjectsValue">
+                <field-path value="build_buildings" on-root-delete="unlink"/>
+                <collection-ref name="yards_buildings_collection"/>
+                <input-text-filter name="byStatusDescription"/>
+                <drop-down-pattern value="{status_description}"/>
+                <selection-pattern value="{status_description}"/>
+            </suggest-box>
+
+        </widget-config>
+
+    </form>
+</configuration>

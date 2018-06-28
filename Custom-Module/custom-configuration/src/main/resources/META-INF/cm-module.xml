@@ -27,14 +27,18 @@
         <!-- Коллекции -->
         <configuration-path>collections/buildings-collection.xml</configuration-path>
         <configuration-path>collections/residential-collection.xml</configuration-path>
-        <configuration-path>collections/nonresidental-major-collection.xml</configuration-path>
-        <configuration-path>collections/nonresidental-minor-collection.xml</configuration-path>
+        <configuration-path>collections/nonresident-major-collection.xml</configuration-path>
+        <configuration-path>collections/nonresident-minor-collection.xml</configuration-path>
         <configuration-path>collections/status-collection.xml</configuration-path>
         <configuration-path>collections/types-collection.xml</configuration-path>
         <configuration-path>collections/yards-collection.xml</configuration-path>
 
+        <!-- Формы -->
+        <configuration-path>forms/yards-form.xml</configuration-path>
+
     </configuration-paths>
     <import-files rewrite="true">
+        <import-file>importdata/build-status.csv</import-file>
         <import-file>importdata/f1.csv</import-file>
         <import-file>importdata/d1.csv</import-file>
         <import-file>importdata/c1.csv</import-file>

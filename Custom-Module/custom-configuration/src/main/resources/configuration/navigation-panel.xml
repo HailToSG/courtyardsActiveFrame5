@@ -2,25 +2,28 @@
 <configuration xmlns="https://cm5.intertrust.ru/config">
     <navigation name="default-panel" is-default="true">
 
-        <link name="Configuration" display-text="Загрузка конфигураций" image="images/cases.png"
-              child-to-open="Configuration_upload">
-            <child-links>
-                <link name="Configuration_upload" display-text="Загрузка конфигурации">
-                    <plugin>
-                        <custom name="configuration.deployer.plugin"/>
-                    </plugin>
-                </link>
-                <link name="Report_upload" display-text="Загрузка шаблонов отчетов">
-                    <plugin>
-                        <custom name="report.upload.plugin"/>
-                    </plugin>
-                </link>
-            </child-links>
-        </link>
+        <link name="Yards" image="images/cases.png">
+                <plugin>
+                    <domain-object-surfer domain-object-type-to-create="yards">
+                        <collection-viewer>
+                            <collection-ref name="yards_collection"/>
+                            <collection-view-ref name="yards_view"/>
+                            <default-sort-criteria column-field="yards_address" order="ASC"/>
+                        <filter-panel panel-state="open"/>
+                            <child-collection name="">
+                                <expandable-objects>
+                                    <expandable-object object-name=""/>
+                                </expandable-objects>
+                            </child-collection>
+                        </collection-viewer>
+                        <form-viewer>
+                            <form-mapping domain-object-type="yards" form="yards_form"/>
+                        </form-viewer>
+                    </domain-object-surfer>
+                </plugin>
+            </link>
+            </navigation>
 
-
-
-    </navigation>
     <navigation-panel-mappings name="nav-panel-map1">
         <navigation-panel-mapping name="default-panel">
             <users>

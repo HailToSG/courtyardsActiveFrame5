@@ -7,11 +7,11 @@
             SELECT
               yards.id            AS id,
               yards.oktmo         AS yards_oktmo,
-              yards.adress        AS yards_adress,
+              yards.address       AS yards_address,
               yards.area          AS yards_area,
               yards.dateendevent  AS yards_date_end_event
 
-            FROM build_yards yards
+            FROM yards yards
             WHERE
               1=1 ::where-clause
             ]]>
@@ -22,13 +22,13 @@
         <display>
             <column field="yards_oktmo" name="ОКТМО" type="string" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut"/>
-            <column field="yards_adress" name="Адрес" type="string" editable="true"
+            <column field="yards_address" name="Адрес" type="string" editable="true"
                     sortable="true" min-width="50px" text-break-style="cut"/>
             <column field="yards_area" name="Площадь" type="long" editable="true"
                     sortable="true" min-width="50px" text-break-style="cut"/>
             <column field="yards_date_end_event" name="Дата изменения" type="timelessDate" editable="true"
                     sortable="true" min-width="50px" text-break-style="cut">
-            </column>
+        </column>
         </display>
     </collection-view>
 

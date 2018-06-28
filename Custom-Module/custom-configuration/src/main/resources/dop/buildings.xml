@@ -12,14 +12,14 @@
             </reference>
 
             <!-- Ссылка на "Нежилые капитальные строения"-->
-            <reference name="build_nonresidental_major" type="build_nonresidental_major" not-null="true">
+            <reference name="build_nonresident_major" type="build_nonresident_major" not-null="true">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </reference>
 
             <!-- Ссылка на "Нежилые некапитальные строения"-->
-            <reference name="build_nonresidental_minor" type="build_nonresidental_minor" not-null="true">
+            <reference name="build_nonresident_minor" type="build_nonresident_minor" not-null="true">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -85,7 +85,7 @@
     </domain-object-type>
 
     <!-- Cущность "Нежилое капитальное строение" -->
-    <domain-object-type name="build_nonresidental_major">
+    <domain-object-type name="build_nonresident_major">
         <fields>
             <!-- Площадь -->
             <long name="area">
@@ -105,7 +105,7 @@
     </domain-object-type>
 
     <!-- Cущность "Жилое нежилое некапитальное строение" -->
-    <domain-object-type name="build_nonresidental_minor">
+    <domain-object-type name="build_nonresident_minor">
         <fields>
             <!-- Площадь -->
             <string name="area" length="100" not-null="true">
@@ -115,11 +115,11 @@
             </string>
 
             <!-- Ссылка на тип строения-->
-            <reference name="buildType" type="build_types" not-null="true">
+            <reference name="buildType" type="build_types">
             </reference>
 
             <!-- Ссылка на статус строения-->
-            <reference name="buildStatus" type="build_status" not-null="true">
+            <reference name="buildStatus" type="build_status">
             </reference>
         </fields>
     </domain-object-type>
