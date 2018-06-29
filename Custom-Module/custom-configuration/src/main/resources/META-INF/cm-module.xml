@@ -35,10 +35,15 @@
 
         <!-- Формы -->
         <configuration-path>forms/yards-form.xml</configuration-path>
+        <configuration-path>forms/residential-form.xml</configuration-path>
+        <configuration-path>forms/nonresident-major-form.xml</configuration-path>
+        <configuration-path>forms/nonresident-minor-form.xml</configuration-path>
 
     </configuration-paths>
     <import-files rewrite="true">
         <import-file>importdata/build-status.csv</import-file>
+        <import-file>importdata/build-types.csv</import-file>
+        <!--<import-file>importdata/build-residential.csv</import-file>-->
         <import-file>importdata/f1.csv</import-file>
         <import-file>importdata/d1.csv</import-file>
         <import-file>importdata/c1.csv</import-file>

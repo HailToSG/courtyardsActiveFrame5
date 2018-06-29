@@ -1,0 +1,4 @@
+TYPE_NAME=Build_Types;KEYS=name;;
+name;description
+"Big house";"Многоэтажный дом";
+"Private house";"Частный дом";

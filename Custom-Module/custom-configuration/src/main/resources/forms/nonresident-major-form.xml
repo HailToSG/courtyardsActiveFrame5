@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Дворы" -->
+    <form name="nonresident_major_form" domain-object-type="build_nonresident_major" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+            <body display-single-tab="true">
+                <tab name="Жилое строение">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="nonresidentMajorAreaLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="nonresidentMajorAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="nonresidentMajorTypeLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="nonresidentMajorTypeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="nonresidentMajorStatusLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="nonresidentMajorStatusValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Жилые здания</text>
+            </label>
+
+            <!-- Площадь -->
+            <label id="nonresidentMajorAreaLabel">
+                <text>Площадь</text>
+            </label>
+            <integer-box id="nonresidentMajorAreaValue">
+                <field-path value="area"/>
+            </integer-box>
+
+            <!-- Тип строения-->
+            <label id="nonresidentMajorTypeLabel">
+                <text>Тип строения</text>
+            </label>
+            <suggest-box id="nonresidentMajorTypeValue">
+                <field-path value="buildtype" on-root-delete="unlink"/>
+                <collection-ref name="nonresident_major_types_collection"/>
+                <input-text-filter name="byTypeDescription"/>
+                <drop-down-pattern value="{type_description}"/>
+                <selection-pattern value="{type_description}"/>
+                <page-size>20</page-size>
+            </suggest-box>
+
+            <!-- Состояние постройки -->
+            <label id="nonresidentMajorStatusLabel">
+                <text>Состояние строения</text>
+            </label>
+            <suggest-box id="nonresidentMajorStatusValue">
+                <field-path value="buildstatus" on-root-delete="unlink"/>
+                <collection-ref name="nonresident_major_status_collection"/>
+                <input-text-filter name="byStatusDescription"/>
+                <drop-down-pattern value="{status_description}"/>
+                <selection-pattern value="{status_description}"/>
+                <page-size>20</page-size>
+            </suggest-box>
+
+        </widget-config>
+
+    </form>
+</configuration>

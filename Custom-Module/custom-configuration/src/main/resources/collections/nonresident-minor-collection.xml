@@ -7,12 +7,12 @@
             SELECT
               minor.id                 AS id,
               minor.area               AS nonresident_minor_area,
-              minor.type               AS nonresident_minor_type,
-              minor.status             AS nonresident_minor_status
+              type.description         AS nonresident_minor_type,
+              status.description       AS nonresident_minor_status
 
             FROM build_nonresident_minor minor
-            INNER JOIN build_types type ON type.id = minor.type
-            INNER JOIN build_status status ON status.id = minor.status
+            INNER JOIN build_types type ON type.id = minor.buildtype
+            INNER JOIN build_status status ON status.id = minor.buildstatus
             WHERE
               1=1 ::where-clause
             ]]>
@@ -30,5 +30,49 @@
             </column>
         </display>
     </collection-view>
+
+    <collection name="nonresident_minor_types_collection" idField="id">
+        <prototype>
+            <![CDATA[
+                SELECT
+                    id,
+                    name        AS type_name,
+                    description AS type_description
+                FROM build_types
+                WHERE
+                description IN ('Многоэтажный дом', 'Частный дом') ::where-clause
+            ]]>
+        </prototype>
+
+        <filter name="byTypeDescription">
+            <criteria placeholder="where-clause">
+                <![CDATA[
+                    LOWER(description) LIKE LOWER('%' || {0} || '%')
+                ]]>
+            </criteria>
+        </filter>
+    </collection>
+
+    <collection name="nonresident_minor_status_collection" idField="id">
+        <prototype>
+            <![CDATA[
+                SELECT
+                    id,
+                    name AS status_name,
+                    description AS status_description
+                FROM build_status
+                WHERE
+                description IN ('Новое', 'Устаревшее') ::where-clause
+            ]]>
+        </prototype>
+
+        <filter name="byStatusDescription">
+            <criteria placeholder="where-clause">
+                <![CDATA[
+                    LOWER(description) LIKE LOWER('%' || {0} || '%')
+                ]]>
+            </criteria>
+        </filter>
+    </collection>
 
 </configuration>

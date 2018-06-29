@@ -2,27 +2,74 @@
 <configuration xmlns="https://cm5.intertrust.ru/config">
     <navigation name="default-panel" is-default="true">
 
-        <link name="Yards" image="images/cases.png">
-                <plugin>
-                    <domain-object-surfer domain-object-type-to-create="yards">
-                        <collection-viewer>
-                            <collection-ref name="yards_collection"/>
-                            <collection-view-ref name="yards_view"/>
-                            <default-sort-criteria column-field="yards_address" order="ASC"/>
-                        <filter-panel panel-state="open"/>
-                            <child-collection name="">
-                                <expandable-objects>
-                                    <expandable-object object-name=""/>
-                                </expandable-objects>
-                            </child-collection>
-                        </collection-viewer>
-                        <form-viewer>
-                            <form-mapping domain-object-type="yards" form="yards_form"/>
-                        </form-viewer>
-                    </domain-object-surfer>
-                </plugin>
-            </link>
-            </navigation>
+        <link name="Dvory" display-text="Дворы" child-to-open="Yards" image="images/cases.png">
+            <child-links>
+
+                <!-- Ссылка "Дворы" -->
+                <link name="Yards" display-text="Дворы">
+                    <plugin>
+                        <domain-object-surfer domain-object-type-to-create="yards">
+                            <collection-viewer>
+                                <collection-ref name="yards_collection"/>
+                                <collection-view-ref name="yards_view"/>
+                                <default-sort-criteria column-field="yards_address" order="ASC"/>
+                                <filter-panel panel-state="open"/>
+                            </collection-viewer>
+                            <form-viewer>
+                                <form-mapping domain-object-type="yards" form="yards_form"/>
+                            </form-viewer>
+                        </domain-object-surfer>
+                    </plugin>
+                </link>
+
+                <!-- Ссылка "Жилые строения" -->
+                <link name="Residential" display-text="Жилые строения">
+                    <plugin>
+                        <domain-object-surfer domain-object-type-to-create="build_residential">
+                            <collection-viewer>
+                                <collection-ref name="residential_collection"/>
+                            </collection-viewer>
+                            <form-viewer>
+                                <form-mapping domain-object-type="build_residential" form="residential_form"/>
+                            </form-viewer>
+                        </domain-object-surfer>
+                    </plugin>
+                </link>
+
+                <!--Ссылка "Нежилые капитальные строения"-->
+                <link name="NonResidentMajor" display-text="Нежилые капитальные строения">
+                    <plugin>
+                        <domain-object-surfer domain-object-type-to-create="build_nonresident_major">
+                            <collection-viewer>
+                                <collection-ref name="nonresident_major_collection"/>
+                            </collection-viewer>
+                            <form-viewer>
+                                <form-mapping domain-object-type="build_nonresident_major"
+                                              form="nonresident_major_form"/>
+                            </form-viewer>
+                        </domain-object-surfer>
+                    </plugin>
+                </link>
+
+                <!-- Ссылка "Нежилые некапитальные строения" -->
+                <link name="NonResidentMinor" display-text="Нежилые некапитальные строения">
+                    <plugin>
+                        <domain-object-surfer domain-object-type-to-create="build_nonresident_minor">
+                            <collection-viewer>
+                                <collection-ref name="nonresident_minor_collection"/>
+                            </collection-viewer>
+                            <form-viewer>
+                                <form-mapping domain-object-type="build_nonresident_minor"
+                                              form="nonresident_minor_form"/>
+                            </form-viewer>
+                        </domain-object-surfer>
+                    </plugin>
+                </link>
+
+            </child-links>
+
+        </link>
+    </navigation>
 
     <navigation-panel-mappings name="nav-panel-map1">
         <navigation-panel-mapping name="default-panel">

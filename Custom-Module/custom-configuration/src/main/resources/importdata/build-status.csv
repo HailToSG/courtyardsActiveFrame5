@@ -1,4 +1,4 @@
 TYPE_NAME=Build_Status;KEYS=name;;
 name;description
-"New";"РќРѕРІРѕРµ";
-"Old";"РЈСЃС‚Р°СЂРµРІС€РµРµ";
+"New";"Новое";
+"Old";"Устаревшее";

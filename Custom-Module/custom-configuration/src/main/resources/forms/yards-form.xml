@@ -173,14 +173,9 @@
             <label id="yardsObjectsLabel">
                 <text>Строения</text>
             </label>
-            <!-- Статус данного формуляра -->
-            <suggest-box id="yardsObjectsValue">
-                <field-path value="build_buildings" on-root-delete="unlink"/>
-                <collection-ref name="yards_buildings_collection"/>
-                <input-text-filter name="byStatusDescription"/>
-                <drop-down-pattern value="{status_description}"/>
-                <selection-pattern value="{status_description}"/>
-            </suggest-box>
+            <text-box id="yardsObjectsValue">
+                <field-path value="address"/>
+            </text-box>
 
         </widget-config>
 

@@ -79,7 +79,7 @@
             </reference>
 
             <!-- Ссылка на статус строения-->
-            <reference name="buildStatusId" type="build_status" not-null="true">
+            <reference name="buildStatus" type="build_status" not-null="true">
             </reference>
         </fields>
     </domain-object-type>
@@ -108,11 +108,11 @@
     <domain-object-type name="build_nonresident_minor">
         <fields>
             <!-- Площадь -->
-            <string name="area" length="100" not-null="true">
+            <long name="area">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
 
             <!-- Ссылка на тип строения-->
             <reference name="buildType" type="build_types">
