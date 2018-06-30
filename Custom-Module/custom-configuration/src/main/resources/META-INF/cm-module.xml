@@ -43,7 +43,7 @@
     <import-files rewrite="true">
         <import-file>importdata/build-status.csv</import-file>
         <import-file>importdata/build-types.csv</import-file>
-        <!--<import-file>importdata/build-residential.csv</import-file>-->
+        <import-file>importdata/build-buildings.csv</import-file>
         <import-file>importdata/f1.csv</import-file>
         <import-file>importdata/d1.csv</import-file>
         <import-file>importdata/c1.csv</import-file>

@@ -4,15 +4,18 @@
     <collection name="residential_collection" idField="id">
         <prototype>
             <![CDATA[
+
             SELECT
               residential.id                 AS id,
               residential.area               AS residential_area,
               type.description               AS residential_type,
-              status.description             AS residential_status
+              status.description             AS residential_status,
+              build.description              AS residential_collection
 
             FROM build_residential residential
             INNER JOIN build_types type ON type.id = residential.buildtype
             INNER JOIN build_status status ON status.id = residential.buildstatus
+            INNER JOIN build_buildings build ON build.id = residential.collection
             WHERE
               1=1 ::where-clause
             ]]>
@@ -24,7 +27,9 @@
                     min-width="50px" text-break-style="cut"/>
             <column field="residential_type" name="Тип" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
-            <column field="residential_status" name="Состояние" type="string" editable="false"
+            <column field="residential_status" name="Состояние" type="string" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="residential_collection" name="Коллекция" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut">
             </column>
         </display>

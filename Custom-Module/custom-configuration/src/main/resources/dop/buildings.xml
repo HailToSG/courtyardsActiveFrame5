@@ -4,27 +4,9 @@
     <!-- Cущность "Строения" -->
     <domain-object-type name="build_buildings">
         <fields>
-            <!-- Ссылка на "Жилые строения"-->
-            <reference name="build_residential" type="build_residential" not-null="true">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
-            <!-- Ссылка на "Нежилые капитальные строения"-->
-            <reference name="build_nonresident_major" type="build_nonresident_major" not-null="true">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
-            <!-- Ссылка на "Нежилые некапитальные строения"-->
-            <reference name="build_nonresident_minor" type="build_nonresident_minor" not-null="true">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
+            <string name="collection" length="1024"/>
+            <string name="name" length="1024"/>
+            <string name="description" length="1024"/>
         </fields>
     </domain-object-type>
 
@@ -81,6 +63,10 @@
             <!-- Ссылка на Состояние-->
             <reference name="buildStatus" type="build_status" not-null="true">
             </reference>
+
+            <!-- Ссылка на сущность Коллекции-->
+            <reference name="collection" type="build_buildings">
+            </reference>
         </fields>
     </domain-object-type>
 
@@ -101,6 +87,10 @@
             <!-- Ссылка на Состояние-->
             <reference name="buildStatus" type="build_status" not-null="true">
             </reference>
+
+            <!-- Ссылка на Коллекцию-->
+            <reference name="collection" type="build_buildings">
+            </reference>
         </fields>
     </domain-object-type>
 
@@ -115,11 +105,15 @@
             </long>
 
             <!-- Ссылка на Тип-->
-            <reference name="buildType" type="build_types">
+            <reference name="buildType" type="build_types" not-null="true">
             </reference>
 
             <!-- Ссылка на Состояние-->
-            <reference name="buildStatus" type="build_status">
+            <reference name="buildStatus" type="build_status" not-null="true">
+            </reference>
+
+            <!-- Ссылка на Коллекцию-->
+            <reference name="collection" type="build_buildings">
             </reference>
         </fields>
     </domain-object-type>

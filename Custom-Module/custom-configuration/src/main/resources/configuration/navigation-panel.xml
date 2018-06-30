@@ -66,6 +66,16 @@
                     </plugin>
                 </link>
 
+                <link name="Buildings" display-text="Строения">
+                    <plugin>
+                        <domain-object-surfer domain-object-type-to-create="build_buildings">
+                            <collection-viewer>
+                                <collection-ref name="buildings_collection"/>
+                            </collection-viewer>
+                        </domain-object-surfer>
+                    </plugin>
+                </link>
+
             </child-links>
 
         </link>

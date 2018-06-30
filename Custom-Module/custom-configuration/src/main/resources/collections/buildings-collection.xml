@@ -6,14 +6,9 @@
             <![CDATA[
             SELECT
               buildings.id                 AS id,
-              buildings.residential        AS buildings_residential,
-              buildings.major              AS buildings_major,
-              buildings.minor              AS buildings_minor
-
+              buildings.name               AS name,
+              buildings.description        AS description
             FROM build_buildings buildings
-            INNER JOIN build_residential br ON br.id = buildings.residential
-            INNER JOIN build_nonresident_major bmaj ON bmaj.id = buildings.major
-            INNER JOIN build_nonresident_minor bmin ON bmin.id = buildings.minor
             WHERE
               1=1 ::where-clause
             ]]>
@@ -22,13 +17,10 @@
 
     <collection-view name="buildings_view" collection="buildings_collection" is-default="true">
         <display>
-            <column field="buildings_residential" name="Жилое строение" type="string" editable="false" sortable="true"
+            <column field="name" name="Имя коллекции" type="string" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut"/>
-            <column field="buildings_major" name="Нежилое капитальное строение" type="string" editable="true"
+            <column field="description" name="Описание коллекции" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
-            <column field="buildings_minor" name="Нежилое некапитальное строение" type="string" editable="true"
-                    sortable="true" min-width="50px" text-break-style="cut">
-            </column>
         </display>
     </collection-view>
 
