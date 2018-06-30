@@ -37,7 +37,7 @@
                 </link>
 
                 <!--Ссылка "Нежилые капитальные строения"-->
-                <link name="NonResidentMajor" display-text="Нежилые капитальные строения">
+                <link name="NonResidentMajor" display-text="Нежилые капитальные">
                     <plugin>
                         <domain-object-surfer domain-object-type-to-create="build_nonresident_major">
                             <collection-viewer>
@@ -52,7 +52,7 @@
                 </link>
 
                 <!-- Ссылка "Нежилые некапитальные строения" -->
-                <link name="NonResidentMinor" display-text="Нежилые некапитальные строения">
+                <link name="NonResidentMinor" display-text="Нежилые некапитальные">
                     <plugin>
                         <domain-object-surfer domain-object-type-to-create="build_nonresident_minor">
                             <collection-viewer>

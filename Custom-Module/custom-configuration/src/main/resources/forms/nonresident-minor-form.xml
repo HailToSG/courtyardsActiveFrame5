@@ -55,20 +55,20 @@
         <widget-config>
 
             <label id="headerLabel">
-                <text>Жилые здания</text>
+                <text>Нежилое некапитальное строение</text>
             </label>
 
-            <!-- Площадь -->
+            <!-- Занимаемая площадь -->
             <label id="nonresidentMinorAreaLabel">
-                <text>Площадь</text>
+                <text>Занимаемая площадь</text>
             </label>
             <integer-box id="nonresidentMinorAreaValue">
                 <field-path value="area"/>
             </integer-box>
 
-            <!-- Тип строения-->
+            <!-- Тип-->
             <label id="nonresidentMinorTypeLabel">
-                <text>Тип строения</text>
+                <text>Тип</text>
             </label>
             <suggest-box id="nonresidentMinorTypeValue">
                 <field-path value="buildtype" on-root-delete="unlink"/>
@@ -81,7 +81,7 @@
 
             <!-- Состояние постройки -->
             <label id="nonresidentMinorStatusLabel">
-                <text>Состояние строения</text>
+                <text>Состояние</text>
             </label>
             <suggest-box id="nonresidentMinorStatusValue">
                 <field-path value="buildstatus" on-root-delete="unlink"/>

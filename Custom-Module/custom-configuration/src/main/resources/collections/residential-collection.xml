@@ -20,11 +20,11 @@
     </collection>
     <collection-view name="residential_view" collection="residential_collection" is-default="true">
         <display>
-            <column field="residential_area" name="Площадь" type="long" editable="false" sortable="true"
+            <column field="residential_area" name="Занимаемая площадь" type="long" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut"/>
-            <column field="residential_type" name="Тип строения" type="string" editable="false"
+            <column field="residential_type" name="Тип" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
-            <column field="residential_status" name="Статус строения" type="string" editable="false"
+            <column field="residential_status" name="Состояние" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut">
             </column>
         </display>
@@ -39,7 +39,7 @@
                     description AS type_description
                 FROM build_types
                 WHERE
-                description IN ('Многоэтажный дом', 'Частный дом') ::where-clause
+                description IN ('МКД', 'ИЖС', 'Блокированный') ::where-clause
             ]]>
         </prototype>
 
@@ -62,7 +62,7 @@
 
                 FROM build_status
                 WHERE
-                description IN ('Новое', 'Устаревшее') ::where-clause
+                description IN ('Отличное', 'Среднее', 'Требует ремонта') ::where-clause
             ]]>
         </prototype>
 

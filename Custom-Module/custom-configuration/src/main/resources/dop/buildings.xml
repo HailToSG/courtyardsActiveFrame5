@@ -46,7 +46,7 @@
             </string>
         </fields>
 
-    </domain-object-type><!-- Cущность "Состояние строения" -->
+    </domain-object-type><!-- Cущность "Состояние" -->
     <domain-object-type name="build_status">
         <fields>
             <!-- Имя состояния -->
@@ -67,18 +67,18 @@
     <!-- Cущность "Жилое строение" -->
     <domain-object-type name="build_residential">
         <fields>
-            <!-- Площадь -->
+            <!-- Занимаемая площадь -->
             <long name="area">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </long>
 
-            <!-- Ссылка на тип строения-->
+            <!-- Ссылка на Тип-->
             <reference name="buildType" type="build_types" not-null="true">
             </reference>
 
-            <!-- Ссылка на статус строения-->
+            <!-- Ссылка на Состояние-->
             <reference name="buildStatus" type="build_status" not-null="true">
             </reference>
         </fields>
@@ -87,18 +87,18 @@
     <!-- Cущность "Нежилое капитальное строение" -->
     <domain-object-type name="build_nonresident_major">
         <fields>
-            <!-- Площадь -->
+            <!-- Занимаемая площадь -->
             <long name="area">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </long>
 
-            <!-- Ссылка на тип строения-->
+            <!-- Ссылка на Тип-->
             <reference name="buildType" type="build_types" not-null="true">
             </reference>
 
-            <!-- Ссылка на статус строения-->
+            <!-- Ссылка на Состояние-->
             <reference name="buildStatus" type="build_status" not-null="true">
             </reference>
         </fields>
@@ -107,18 +107,18 @@
     <!-- Cущность "Жилое нежилое некапитальное строение" -->
     <domain-object-type name="build_nonresident_minor">
         <fields>
-            <!-- Площадь -->
+            <!-- Занимаемая площадь -->
             <long name="area">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </long>
 
-            <!-- Ссылка на тип строения-->
+            <!-- Ссылка на Тип-->
             <reference name="buildType" type="build_types">
             </reference>
 
-            <!-- Ссылка на статус строения-->
+            <!-- Ссылка на Состояние-->
             <reference name="buildStatus" type="build_status">
             </reference>
         </fields>

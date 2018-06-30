@@ -21,11 +21,11 @@
 
     <collection-view name="nonresident_major_view" collection="nonresident_major_collection" is-default="true">
         <display>
-            <column field="nonresident_major_area" name="Площадь" type="long" editable="false" sortable="true"
+            <column field="nonresident_major_area" name="Занимаемая площадь" type="long" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut"/>
-            <column field="nonresident_major_type" name="Тип строения" type="string" editable="false"
+            <column field="nonresident_major_type" name="Тип" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
-            <column field="nonresident_major_status" name="Статус строения" type="string" editable="false"
+            <column field="nonresident_major_status" name="Состояние" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut">
             </column>
         </display>
@@ -40,7 +40,10 @@
                     description AS type_description
                 FROM build_types
                 WHERE
-                description IN ('Многоэтажный дом', 'Частный дом') ::where-clause
+                description IN ('Гараж', 'Офис', 'Магазин', 'Трансформаторная подстанция',
+                'Хозяйственная постройка','Учреждение культуры', 'Учреждение образования',
+                'Лечебное учреждение', 'Тепловой пункт','Незавершенный',
+                'Заброшенный', 'Иное') ::where-clause
             ]]>
         </prototype>
 
@@ -62,7 +65,7 @@
                     description AS status_description
                 FROM build_status
                 WHERE
-                description IN ('Новое', 'Устаревшее') ::where-clause
+                description IN ('Отличное', 'Среднее', 'Требует ремонта') ::where-clause
             ]]>
         </prototype>
 

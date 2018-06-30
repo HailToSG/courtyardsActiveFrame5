@@ -1,4 +1,24 @@
 TYPE_NAME=Build_Types;KEYS=name;;
 name;description
-"Big house";"Многоэтажный дом";
-"Private house";"Частный дом";
+"MKD";"МКД";
+"IJS";"ИЖС";
+"Blocked";"Блокированный";
+"Garage";"Гараж";
+"Office";"Офис";
+"Store";"Магазин";
+"Transformer Substation";"Трансформаторная подстанция";
+"Utility Building";"Хозяйственная постройка";
+"WC";"Туалет";
+"Cultural Establishment";"Учреждение культуры";
+"Educational Establishment";"Учреждение образования";
+"Medical Establishment";"Лечебное учреждение";
+"Thermal Point";"Тепловой пункт";
+"Unfinished";"Незавершенный";
+"Abandoned";"Заброшенный";
+"Other";"Иное";
+"Commercial Pavilion";"Торговый павильон";
+"Utility Object";"Хозяйственный объект";
+"Carport";"Навес для автомобилей";
+
+
+

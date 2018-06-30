@@ -15,7 +15,7 @@
                             <simple-constraint value="not-empty"/>
                         </constraints>
                     </string>
-                    <!--Площадь двора -->
+                    <!--Занимаемая площадь двора -->
                     <long name="area">
                         <constraints>
                             <simple-constraint value="not-empty"/>

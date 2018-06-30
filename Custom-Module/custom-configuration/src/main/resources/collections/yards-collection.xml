@@ -24,7 +24,7 @@
                     min-width="50px" text-break-style="cut"/>
             <column field="yards_address" name="Адрес" type="string" editable="true"
                     sortable="true" min-width="50px" text-break-style="cut"/>
-            <column field="yards_area" name="Площадь" type="long" editable="true"
+            <column field="yards_area" name="Занимаемая площадь" type="long" editable="true"
                     sortable="true" min-width="50px" text-break-style="cut"/>
             <column field="yards_date_end_event" name="Дата изменения" type="timelessDate" editable="true"
                     sortable="true" min-width="50px" text-break-style="cut">

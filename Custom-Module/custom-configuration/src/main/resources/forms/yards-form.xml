@@ -137,9 +137,9 @@
                 <field-path value="address"/>
             </text-box>
 
-            <!-- Площадь -->
+            <!-- Занимаемая площадь -->
             <label id="yardsAreaLabel">
-                <text>Площадь</text>
+                <text>Занимаемая площадь</text>
             </label>
             <integer-box id="yardsAreaValue">
                 <field-path value="area"/>
