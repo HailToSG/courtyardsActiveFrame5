@@ -66,15 +66,20 @@
                     </plugin>
                 </link>
 
-                <link name="Buildings" display-text="Строения">
-                    <plugin>
-                        <domain-object-surfer domain-object-type-to-create="build_buildings">
-                            <collection-viewer>
-                                <collection-ref name="buildings_collection"/>
-                            </collection-viewer>
-                        </domain-object-surfer>
-                    </plugin>
-                </link>
+                <!--<link name="Buildings" display-text="Строения">-->
+                    <!--<plugin>-->
+                        <!--<domain-object-surfer domain-object-type-to-create="build_buildings">-->
+                            <!--<collection-viewer>-->
+                                <!--<collection-ref name="buildings_collection"/>-->
+                                <!--<collection-view-ref name="buildings_view"/>-->
+                            <!--</collection-viewer>-->
+                            <!--<form-viewer>-->
+                                <!--<form-mapping domain-object-type="build_buildings"-->
+                                              <!--form="buildings_form"/>-->
+                            <!--</form-viewer>-->
+                        <!--</domain-object-surfer>-->
+                    <!--</plugin>-->
+                <!--</link>-->
 
             </child-links>
 

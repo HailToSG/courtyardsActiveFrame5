@@ -101,10 +101,28 @@
                             <table>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="yardsObjectsLabel"/>
+                                        <widget id="yardsResidentialObjectsLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="yardsObjectsValue"/>
+                                        <widget id="yardsResidentialObjectsValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="yardsMajorObjectsLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="yardsMajorObjectsValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="yardsMinorObjectsLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="yardsMinorObjectsValue"/>
                                     </td>
                                 </tr>
                             </table>
@@ -170,12 +188,71 @@
             </text-box>
 
             <!-- Строения -->
-            <label id="yardsObjectsLabel">
-                <text>Строения</text>
+            <label id="yardsResidentialObjectsLabel">
+                <text>Жилые строения</text>
             </label>
-            <text-box id="yardsObjectsValue">
-                <field-path value="address"/>
-            </text-box>
+            <linked-domain-objects-table id="yardsResidentialObjectsValue">
+                <field-path value="build_residential^yard, build_residential^buildStatus" on-root-delete="unlink"/>
+                <linked-form name="residential_form" inline="true" domain-object-type="build_residential" />
+                <summary-table>
+                    <summary-table-column header="Тип объекта" widget-id="residentialTypeValue">
+                        <pattern value="{buildType.description}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Состояние" widget-id="residentialStatusValue">
+                        <pattern value="{buildStatus.description}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Площадь" widget-id="residentialAreaValue">
+                        <pattern value="{area}"/>
+                    </summary-table-column>
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
+
+            <!-- Нежилые Кап. -->
+            <label id="yardsMajorObjectsLabel">
+                <text>Нежилые капитальные строения</text>
+            </label>
+            <linked-domain-objects-table id="yardsMajorObjectsValue" modal-width="600px" modal-height="400px">
+                <field-path value="build_nonresident_major^yard" on-root-delete="unlink"/>
+
+                <linked-form name="nonresident_major_form" inline="true"
+                             domain-object-type="build_nonresident_major"/>
+                <summary-table>
+                    <summary-table-column header="Тип объекта" widget-id="nonresidentMajorTypeValue">
+                        <pattern value="{buildType.description}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Состояние" widget-id="nonresidentMajorStatusValue">
+                        <pattern value="{buildStatus.description}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Площадь" widget-id="nonresidentMajorAreaValue">
+                        <pattern value="{area}"/>
+                    </summary-table-column>
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
+
+            <!--Нежилые неКап. -->
+            <label id="yardsMinorObjectsLabel">
+                <text>Нежилые некапитальные строения</text>
+            </label>
+            <linked-domain-objects-table id="yardsMinorObjectsValue" modal-width="600px" modal-height="400px">
+                <field-path value="build_nonresident_minor^yard" on-root-delete="unlink"/>
+                <linked-form name="nonresident_minor_form" inline="true"
+                             domain-object-type="build_nonresident_minor"/>
+                <summary-table>
+                    <summary-table-column header="Тип объекта" widget-id="nonresidentMinorTypeValue">
+                        <pattern value="{buildType.description}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Состояние" widget-id="nonresidentMinorStatusValue">
+                        <pattern value="{buildStatus.description}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Площадь" widget-id="nonresidentMinorAreaValue">
+                        <pattern value="{area}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
 
         </widget-config>
 

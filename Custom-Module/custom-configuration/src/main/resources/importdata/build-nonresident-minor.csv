@@ -1,0 +1,7 @@
+TYPE_NAME=Build_Nonresident_Minor;KEYS=area;;
+area;Buildtype;Buildstatus;Yard;
+"123";"name=""Carport""";"name=""Normal""";"address=""Ул. Астана Кесаева 20"""
+"50";"name=""Commercial Pavilion""";"name=""Normal""";"address=""Ул. Астана Кесаева 20"""
+"200";"name=""Utility Object""";"name=""Old""";"address=""Ул. Астана Кесаева 20"""
+"134";"name=""Carport""";"name=""New""";"address=""Ул. Астана Кесаева 20"""
+"129";"name=""Other""";"name=""Old""";"address=""Ул. Астана Кесаева 20"""

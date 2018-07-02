@@ -1,0 +1,7 @@
+TYPE_NAME=Build_Nonresident_Major;KEYS=area;;
+area;Buildtype;Buildstatus;Yard;
+"123";"name=""Garage""";"name=""Normal""";"address=""Ул. Астана Кесаева 20"""
+"50";"name=""Office""";"name=""Normal""";"address=""Ул. Астана Кесаева 20"""
+"200";"name=""Store""";"name=""Old""";"address=""Ул. Астана Кесаева 20"""
+"134";"name=""Utility Building""";"name=""New""";"address=""Ул. Астана Кесаева 20"""
+"129";"name=""Medical Establishment""";"name=""Old""";"address=""Ул. Астана Кесаева 20"""

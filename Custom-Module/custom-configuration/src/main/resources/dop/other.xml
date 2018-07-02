@@ -4,13 +4,13 @@
     <domain-object-type name="yards">
                 <fields>
                     <!--ОКТМО -->
-                    <string name="oktmo" length="100">
+                    <string name="oktmo" length="1000">
                         <constraints>
                             <simple-constraint value="not-empty"/>
                         </constraints>
                     </string>
                     <!--Адрес двора -->
-                    <string name="address" length="100">
+                    <string name="address" length="1000">
                         <constraints>
                             <simple-constraint value="not-empty"/>
                         </constraints>
@@ -27,9 +27,6 @@
                         <simple-constraint value="not-empty"/>
                     </constraints>
                     </timelessDate>
-
-                    <!--ссылка на Строения -->
-                    <reference name="buildingsId" type="build_buildings"/>
                 </fields>
     </domain-object-type>
 

@@ -28,7 +28,9 @@
             </string>
         </fields>
 
-    </domain-object-type><!-- Cущность "Состояние" -->
+    </domain-object-type>
+
+    <!-- Cущность "Состояние" -->
     <domain-object-type name="build_status">
         <fields>
             <!-- Имя состояния -->
@@ -64,8 +66,8 @@
             <reference name="buildStatus" type="build_status" not-null="true">
             </reference>
 
-            <!-- Ссылка на сущность Коллекции-->
-            <reference name="collection" type="build_buildings">
+            <!-- Ссылка на Двор-->
+            <reference name="yard" type="yards">
             </reference>
         </fields>
     </domain-object-type>
@@ -88,8 +90,8 @@
             <reference name="buildStatus" type="build_status" not-null="true">
             </reference>
 
-            <!-- Ссылка на Коллекцию-->
-            <reference name="collection" type="build_buildings">
+            <!-- Ссылка на Двор-->
+            <reference name="yard" type="yards">
             </reference>
         </fields>
     </domain-object-type>
@@ -112,8 +114,8 @@
             <reference name="buildStatus" type="build_status" not-null="true">
             </reference>
 
-            <!-- Ссылка на Коллекцию-->
-            <reference name="collection" type="build_buildings">
+            <!-- Ссылка на Двор-->
+            <reference name="yard" type="yards">
             </reference>
         </fields>
     </domain-object-type>

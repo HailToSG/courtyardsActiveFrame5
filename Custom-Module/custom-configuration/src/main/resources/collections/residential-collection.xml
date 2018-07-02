@@ -9,17 +9,23 @@
               residential.id                 AS id,
               residential.area               AS residential_area,
               type.description               AS residential_type,
-              status.description             AS residential_status,
-              build.description              AS residential_collection
+              status.description             AS residential_status
 
             FROM build_residential residential
             INNER JOIN build_types type ON type.id = residential.buildtype
             INNER JOIN build_status status ON status.id = residential.buildstatus
-            INNER JOIN build_buildings build ON build.id = residential.collection
             WHERE
               1=1 ::where-clause
             ]]>
         </prototype>
+
+        <filter name="byArea">
+            <criteria placeholder="where-clause">
+                <![CDATA[
+                    LOWER(area) LIKE LOWER('%' || {0} || '%')
+                ]]>
+            </criteria>
+        </filter>
     </collection>
     <collection-view name="residential_view" collection="residential_collection" is-default="true">
         <display>
@@ -28,9 +34,7 @@
             <column field="residential_type" name="Тип" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
             <column field="residential_status" name="Состояние" type="string" editable="false" sortable="true"
-                    min-width="50px" text-break-style="cut"/>
-            <column field="residential_collection" name="Коллекция" type="string" editable="false"
-                    sortable="true" min-width="50px" text-break-style="cut">
+                    min-width="50px" text-break-style="cut">
             </column>
         </display>
     </collection-view>
